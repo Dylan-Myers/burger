@@ -1,10 +1,10 @@
 module.exports = function(app) {
 
-
+// route for home
     app.get("/", function(req, res) {
       res.redirect("/burgers");
     });
-  
+  //route for burger list 
     app.get("/burgers", function(req, res) {
     
       db.burger.findAll().then(function(burgerData) {
@@ -13,7 +13,7 @@ module.exports = function(app) {
         res.render("index", { burger_data: burgerData });
       });
     });
-  
+  // put route
     app.put("/burgers/:id", function(req, res) {
       db.burger.update(
         {
@@ -31,7 +31,7 @@ module.exports = function(app) {
         });
   
     });''
-  
+  // create a new burger
   app.post("/burgers/create", function(req, res) {
   
     console.log(req.body.burger_name)
@@ -42,7 +42,7 @@ module.exports = function(app) {
       res.redirect("/");
     });
   });
-
+//route to get all customers
     app.get("/api/customer", function(req, res) {
       
       db.customer.findAll({}).then(function(customer) {

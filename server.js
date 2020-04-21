@@ -16,7 +16,7 @@ app.use(express.json());
 
 var db = require("./models");
 
-require("./controllers/burgersController")(app);
+require("./controllers/burger_controller")(app);
 
 
 db.sequelize.sync().then(function() {
